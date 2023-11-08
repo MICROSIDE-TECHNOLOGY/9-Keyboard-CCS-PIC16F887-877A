@@ -14,7 +14,7 @@ char const KEYS[4][4] =
 void kbd_init()
 {
  set_tris_b(0x0F);   // B7-B4 columnas, B3-B0 filas
- // port_b_pullups(true); 
+ port_b_pullups(true); 
 }
 
 short int ALL_ROWS (void)

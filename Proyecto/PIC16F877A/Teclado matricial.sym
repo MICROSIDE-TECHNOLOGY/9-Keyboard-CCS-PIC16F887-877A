@@ -1,8 +1,8 @@
-004-005 @READ_PROGRAM_MEMORY8.P1
-004-005 @WRITE_PROGRAM_MEMORY8.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
 008     PSP_DATA
-015     CCP_1_LOW
 015     CCP_1
+015     CCP_1_LOW
 016     CCP_1_HIGH
 01B     CCP_2
 01B     CCP_2_LOW
@@ -23,35 +23,34 @@
 07A     @SCRATCH
 09C.6   C1OUT
 09C.7   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
 000004  KEYS.call
 000008  KEYS.data
 000018  kbd_init
-00001F  ALL_ROWS
-000044  kbd_getc
-0000D7  @goto47764
-0000DF  MAIN
-0000DF  @cinit1
-0000E9  @cinit2
+000020  ALL_ROWS
+000045  kbd_getc
+0000D8  @goto48610
+0000E0  MAIN
+0000E0  @cinit1
+0000EA  @cinit2
 
 Project Directory:
-    E:\Martin Hdez\Desktop\CCS 16F\877A\Práctica 9\
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\9-Keyboard-CCS-PIC16F887-877A\Proyecto\PIC16F877A\
 
 Project Files:
-    Teclado matricial.c                                     [24-feb.-22 14:41  CRC=18BA1FF1]
-    ..\..\..\..\..\Program Files\PICC\Devices\16F877A.h     [15-ene.-18 15:53  CRC=63418C39]
-    Teclado4x4.h                                            [24-feb.-22 14:38  CRC=49978A86]
+    Teclado matricial.c                                     [29-ago.-23 17:11  CRC=E4F61C5F]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\16F877A.h [02-may.-23 08:27  CRC=32478F9C]
+    Teclado4x4.h                                            [29-ago.-23 17:05  CRC=E2E372A9]
 
-Source signature=0F2AC136
+Source signature=DD04914D
 Program memory checksum=0000
-Program memory CRC=0000
-Hex file CRC=9345
+Hex file CRC=921A
 
 Units:
-    Teclado matricial (main)
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\9-Keyboard-CCS-PIC16F887-877A\Proyecto\PIC16F877A\Teclado matricial (main)
 
 Compiler Settings:
     Processor:      PIC16F877A
@@ -60,7 +59,10 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
-    Compile Mode:       CCS5
+    Compile Mode:   CCS5
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
 Output Files:
     XREF file:   Teclado matricial.xsym

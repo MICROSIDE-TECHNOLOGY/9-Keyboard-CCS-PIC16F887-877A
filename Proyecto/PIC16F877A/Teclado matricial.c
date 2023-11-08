@@ -1,7 +1,12 @@
- /*
-AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V.
-FECHA: JUNIO 2019
-*/
+/************************************************************************************************
+Company:
+Microside Technology Inc.
+File Name:
+Teclado matricial.c
+Product Revision  :  1
+Device            :  X-TRAINER
+Driver Version    :  1.0
+************************************************************************************************/
 
 /*
 ---------------------------------------------------------------------------
@@ -11,11 +16,10 @@ el LED y al presionar la tecla 0 se apagará el LED.
 ---------------------------------------------------------------------------
 */
 
-#include <16F877A.h>                            //Incluye el microcontrolador con el que se va a trabajar 
-#use delay(clock=20Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
+#include <16F877A.h>                 //Incluye el microcontrolador con el que se va a trabajar 
+#use delay ( clock=20Mhz, crystal )  //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
 
-
-#define LED PIN_A1                              //Pin donde está conectado el LED de X-TRAINER
+#define LED PIN_A1                   //Pin donde está conectado el LED de X-TRAINER
 char TECLA_PRESS;
 
 /*
@@ -24,35 +28,29 @@ CONFIGURACIÓN DE PINES TECLADO
 ---------------------------------------------------------------------------
 */
 
-#define row0 PIN_B0                             //Filas del teclado colocar resistencia pullup
-#define row1 PIN_B1                             //Filas del teclado colocar resistencia pullup
-#define row2 PIN_B2                             //Filas del teclado colocar resistencia pullup
-#define row3 PIN_B3                             //Filas del teclado colocar resistencia pullup
-#define col0 PIN_B4                             //Columnas del teclado
-#define col1 PIN_B5                             //Columnas del teclado
-#define col2 PIN_B6                             //Columnas del teclado
-#define col3 PIN_B7                             //Columnas del teclado
+#define row0 PIN_B0                  //Filas del teclado colocar resistencia pullup
+#define row1 PIN_B1                  //Filas del teclado colocar resistencia pullup
+#define row2 PIN_B2                  //Filas del teclado colocar resistencia pullup
+#define row3 PIN_B3                  //Filas del teclado colocar resistencia pullup
+#define col0 PIN_B4                  //Columnas del teclado
+#define col1 PIN_B5                  //Columnas del teclado
+#define col2 PIN_B6                  //Columnas del teclado
+#define col3 PIN_B7                  //Columnas del teclado
 
-#include "Teclado4x4.h"                         //Librería de teclado
+#include "Teclado4x4.h"              //Librería de teclado
 
-void main()
+void main ( void ) {
+   kbd_init ( );                     //inicialización del teclado.
 
-{
+   while ( 1 ) {
+      TECLA_PRESS = kbd_getc ( );
 
-    kbd_init ();                                //inicialización del teclado.
+      if ( TECLA_PRESS == '1' ) {
+         output_HIGH ( LED );        //Cambio de estado en el pin RA1
+      }
 
-    while(TRUE)
-      {
-        TECLA_PRESS = kbd_getc () ;
-
-         if (TECLA_PRESS == '1')
-          {
-            output_HIGH (LED);                  //Cambio de estado en el pin RA1
-          }
-
-          if (TECLA_PRESS == '0')
-         {
-             output_LOW (LED);                  //Cambio de estado en el pin RA1
-          }
-    }
+      if ( TECLA_PRESS == '0' ) {
+         output_LOW ( LED );         //Cambio de estado en el pin RA1
+      }
+   }
 }
